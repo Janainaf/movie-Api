@@ -5,7 +5,7 @@ import pandas as pd
 
 # Create a project folder and set up a virtual environment in this folder and install Python’s requests library.
 # Create a function to request data from the OMDb API for each movie in the CSV file using their IMDB ids.
-
+# Needs to use regex to clean Runtime, number of awards and other col
 def open_csv():
     with open('oscar_winners.csv') as csvfile:
         oscar_winners = csv.reader(csvfile)
