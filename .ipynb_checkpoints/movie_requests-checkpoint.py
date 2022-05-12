@@ -11,20 +11,12 @@ def open_csv():
         oscar_winners = csv.reader(csvfile)
         next(oscar_winners)
 
-        data_file = open('movies.csv', 'w', newline='')
-        csv_writer = csv.writer(data_file)
-
-        count = 0
         for row in oscar_winners:
             movie = row[1]
             movie1 = requests.get(f"http://www.omdbapi.com/?i={movie}&apikey={api_key}")
             data = movie1.json()
-            if count == 0:
-                csv_writer.writerow(data)
-                count += 1
-            csv_writer.writerow(data.values())
-        
-        data_file.close()
+            data.to_csv('movies.csv.csv', encoding='utf-8-sig')
+#Save the returned data to a new CSV file named movies.csv. It should include:
 
 
 open_csv()
